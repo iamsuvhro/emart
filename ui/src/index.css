@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans");
+
+:root {
+    --background: #f1f5f8;
+  
+    --primary: #3b85fc;
+    --sidebar: #00142b;
+  
+    --primary_black: #191917;
+  
+    --primary_black: #191917;
+  
+    /* fonts */
+    --ubuntu: "Ubuntu", sans-serif;
+  }
