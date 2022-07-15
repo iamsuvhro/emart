@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans");
 
 :root {
     --background: #f1f5f8;
@@ -14,5 +13,9 @@
     --primary_black: #191917;
   
     /* fonts */
-    --ubuntu: "Ubuntu", sans-serif;
+
+
+  }
+  .page{
+    @apply ml-64 -mt-8;
   }
