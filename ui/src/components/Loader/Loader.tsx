@@ -8,7 +8,7 @@ const Loader = ({ size = 28 }: Props) => {
   return (
     <div className="w-full flex-1 flex items-center justify-center">
       <svg
-        className={`animate-spin text-white`}
+        className={`animate-spin text-black`}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -18,10 +18,10 @@ const Loader = ({ size = 28 }: Props) => {
         }}
       >
         <circle
-          className="text-primary"
+          className="text-blue-500"
           cx="12"
           cy="12"
-          r="10"
+          r="20"
           stroke="currentColor"
           strokeWidth="4"
         ></circle>

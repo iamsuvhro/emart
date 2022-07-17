@@ -13,12 +13,16 @@ const SidebarItems = ({ to, text, Icon }: Props) => {
   return (
     <NavLink to={to}>
       <li
-        className={`relative flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out ${
-          isActive ? "text-gray-900 bg-gray-100" : "text-gray-700 bg-white"
+        className={`relative flex items-center text-sm ml-2 mr-2 mt-1 mb-1 py-4 px-6 h-12 overflow-hidden  text-ellipsis whitespace-nowrap rounded hover:text-white hover:bg-blue-600 transition duration-300 ease-in-out ${
+          isActive ? "text-white bg-blue-600" : "text-gray-700 bg-white"
         }`}
       >
         <div className="flex grid-cols-2 gap-2 items-center">
-          <Icon />
+          <Icon
+            className={`${isActive ? "text-white " : "text-gray-700"} `}
+            size={18}
+          />
+
           <span>{text}</span>
         </div>
       </li>
