@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { Router } from "react-router";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Loader from "../components/Loader/Loader";
+import { BarLoader, ClipLoader } from "react-spinners";
 
 const Header = lazy(() => import("../components/Header/Header"));
 const Sidebar = lazy(() => import("../components/Sidebar/Sidebar"));
@@ -27,7 +28,7 @@ export default function DefaultLayout() {
             pl-56"
           `}
           >
-            <Suspense fallback={<Loader />}>
+            <Suspense>
               <Routes>
                 <Route path="/home" element={<Homepage />} />
                 <Route path="/category" element={<Category />} />
