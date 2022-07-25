@@ -38,9 +38,9 @@
       display: none; /* for Chrome, Safari, and Opera */
     }
     .page{
-      @apply ml-64 -mt-8;
+      @apply ml-72 -mt-8;
     }
-    .btn{
-      @apply inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out;
+    .btn-card{
+      @apply bg-blue-600 p-2 w-4/5 text-center rounded-2xl text-white text-sm hover:bg-blue-900 hover:text-white;
     }
   }
