@@ -10,7 +10,7 @@ export default function Sidebar() {
   return (
     <div className="w-60 h-full shadow-md bg-white px-1 absolute">
       <ul className="relative mt-4">
-        <SidebarItems Icon={MdOutlineHome} text="Home" to="/home"/>
+        <SidebarItems Icon={MdOutlineHome} text="Home" to="/"/>
         <SidebarItems Icon={MdOutlineCategory} text="Category" to="/category"/>
         <SidebarItems Icon={MdManageAccounts} text="Account Details" to="/account"/>
         <SidebarItems Icon={MdOutlineSettings} text="Settings" to="/settings"/>

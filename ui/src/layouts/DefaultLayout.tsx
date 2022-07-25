@@ -6,10 +6,10 @@ import { BarLoader, ClipLoader } from "react-spinners";
 
 const Header = lazy(() => import("../components/Header/Header"));
 const Sidebar = lazy(() => import("../components/Sidebar/Sidebar"));
-const Homepage = lazy(() => import("../pages/Home"));
-const Category = lazy(() => import("../pages/Category/Category"));
-const Settings = lazy(() => import("../pages/Settings/SettingsPage"));
-const Account = lazy(() => import("../pages/Account/AccountPage"));
+const Homepage = lazy(() => import("../pages/home/HomePage"));
+const Category = lazy(() => import("../pages/category/Category"));
+const Settings = lazy(() => import("../pages/settings/SettingsPage"));
+const Account = lazy(() => import("../pages/account/AccountPage"));
 
 export default function DefaultLayout() {
   return (
@@ -28,9 +28,9 @@ export default function DefaultLayout() {
             pl-56"
           `}
           >
-            <Suspense>
+            <Suspense fallback={<Loader/>}>
               <Routes>
-                <Route path="/home" element={<Homepage />} />
+                <Route path="/" element={<Homepage />} />
                 <Route path="/category" element={<Category />} />
                 <Route path="/account" element={<Account />} />
                 <Route path="/settings" element={<Settings />} />

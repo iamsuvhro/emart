@@ -8,6 +8,8 @@ import { authLogout } from "../../state/action-creators";
 import MainLayout from "../../layouts/MainLayout";
 import { Route } from "react-router-dom";
 import DefaultLayout from "../../layouts/DefaultLayout";
+import { NavLink } from "react-router-dom";
+
 
 export default function Login() {
   const [username, setusername] = useState("");
@@ -26,6 +28,8 @@ export default function Login() {
     dispatch
   );
 
+  const [error, seterror] = useState("")
+
   const handleSendData = async () => {
     const axios = require("axios");
     let headers = new Headers();
@@ -41,12 +45,14 @@ export default function Login() {
         password: password,
       },
     }).then((response: any) => {
-      console.log("Userlogin", response.data.success);
+      // console.log("Userlogin", response.data.success);
 
         if (response.data.success === true) {
+          seterror("Authentication successfull")
           authLogin();
         } else {
           authLogout()
+          seterror("Incorrect username or password")
         }
       });
   };
@@ -56,17 +62,11 @@ export default function Login() {
       <section className="h-screen">
         <div className="px-6 h-full text-gray-800">
           <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
-            <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-                className="w-full"
-                alt="Sample image"
-              />
-            </div>
+
             <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
               <form>
                 <div className="items-center text-3xl text-black text-center mb-10">
-                  Login
+                  Account Login
                 </div>
                 <div className="mb-6">
                   <input
@@ -75,6 +75,7 @@ export default function Login() {
                     placeholder="Email address"
                     onChange={usernameOnchange}
                   />
+                  <p className="ml-2 text-sm text-red-500">{error}</p>
                 </div>
 
                 <div className="mb-6">
@@ -84,6 +85,7 @@ export default function Login() {
                     placeholder="Password"
                     onChange={passwordOnchange}
                   />
+                  <p className="ml-2 text-sm text-red-500">{error}</p>
                 </div>
 
                 <div className="flex justify-between items-center mb-6">
@@ -102,30 +104,34 @@ export default function Login() {
                   </a>
                 </div>
 
-                <div className="text-center lg:text-left">
+                <div className="text-center lg:text-center">
                   <button
                     type="button"
-                    className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                    className="items-center self-center w-1/4 inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                     onClick={handleSendData}
                   >
                     Login
                   </button>
-                  <p className="text-sm font-semibold mt-2 mr-2 pt-1 mb-0">
-                    Don't have an account ?
-                    <a
-                      href="#!"
-                      className="text-red-600 hover:text-red-700 ml-2 focus:text-red-700 transition duration-200 ease-in-out"
-                    >
-                      Register Now
-                    </a>
-                  </p>
+
                 </div>
 
                 <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
                   <p className="text-center font-semibold mx-4 mb-0">Or</p>
                 </div>
 
-                <div className="flex flex-row items-center justify-center lg:justify-start">
+                <p className="text-sm font-semibold mt-2 mr-2 pt-1 mb-0 flex">
+                    Don't have an account ?
+                    <NavLink to={"/create-account/"}>
+                    <p
+                      className="text-red-600 hover:text-red-700 ml-2 focus:text-red-700 transition duration-200 ease-in-out"
+                    >
+                      Register Now
+                    </p>
+                    </NavLink>
+                  </p>
+                  
+
+                {/* <div className="flex flex-row items-center justify-center lg:justify-start">
                   <p className="text-lg mb-0 mr-4">Sign in with</p>
                   <button
                     type="button"
@@ -180,7 +186,7 @@ export default function Login() {
                       />
                     </svg>
                   </button>
-                </div>
+                </div> */}
               </form>
             </div>
           </div>
